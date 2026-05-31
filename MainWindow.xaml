@@ -1,0 +1,126 @@
+﻿<Window x:Class="PanasheCybersecurityChatbot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Nash - Cybersecurity Awareness Bot"
+        Height="780"
+        Width="980"
+        Background="#0F0F1A"
+        Foreground="White"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI">
+
+    <Window.Resources>
+
+        <Style TargetType="TextBox" x:Key="NoBorderTextBox">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <!-- ROW DEFINITIONS -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <Border Grid.Row="0"
+                Background="#1A1A2E"
+                Padding="18">
+
+            <DockPanel LastChildFill="True">
+
+                <!-- LOGO -->
+                <Image x:Name="LogoImage"
+                       Width="75"
+                       Height="75"
+                       Margin="0,0,18,0"
+                       Stretch="Uniform"
+                       DockPanel.Dock="Left"/>
+
+                <!-- TITLE -->
+                <StackPanel VerticalAlignment="Center">
+
+                    <TextBlock Text="NASH CYBER AWARENESS BOT"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="#00FFCC"/>
+
+                    <TextBlock Text="Stay Safe • Stay Smart • Stay Secure"
+                               FontSize="16"
+                               Margin="0,6,0,0"
+                               Foreground="#88FFDD"/>
+
+                </StackPanel>
+
+            </DockPanel>
+
+        </Border>
+
+        <!-- ================================================= -->
+        <!-- CHAT AREA -->
+        <!-- ================================================= -->
+
+        <ScrollViewer Grid.Row="1"
+                      x:Name="ChatScroll"
+                      VerticalScrollBarVisibility="Auto"
+                      Background="#16213E"
+                      Padding="20">
+
+            <StackPanel x:Name="ChatPanel"/>
+
+        </ScrollViewer>
+
+        <!-- ================================================= -->
+        <!-- INPUT AREA -->
+        <!-- ================================================= -->
+
+        <Border Grid.Row="2"
+                Background="#1A1A2E"
+                Padding="15">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- USER INPUT -->
+                <TextBox x:Name="UserInput"
+                         Grid.Column="0"
+                         Background="#0F0F1A"
+                         Foreground="White"
+                         FontSize="16"
+                         Padding="15,12"
+                         VerticalContentAlignment="Center"
+                         BorderBrush="#00FFCC"
+                         BorderThickness="2"
+                         KeyDown="UserInput_KeyDown"
+                         Style="{StaticResource NoBorderTextBox}"/>
+
+                <!-- SEND BUTTON -->
+                <Button x:Name="SendButton"
+                        Grid.Column="1"
+                        Content="Send"
+                        Margin="12,0,0,0"
+                        Width="120"
+                        Height="52"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Background="#00FFCC"
+                        Foreground="#0F0F1A"
+                        Click="SendButton_Click"/>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+</Window>
